@@ -1,11 +1,12 @@
 import React from 'react';
 
 import './App.css';
+import HomePage from './pages/home.page/Home.page';
 
 function App() {
   return (
-    <div>
-      <h1>Paperon</h1>
+    <div className="App">
+      <HomePage />
     </div>
   );
 }
