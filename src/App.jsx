@@ -8,10 +8,12 @@ import { Route, Switch } from 'react-router-dom';
 import IkanPage from './pages/ikan.page/Ikan.page';
 import LoginPage from './pages/login.page/Login.page';
 import RegisterPage from './pages/register.page/Register.page';
+import Header from './components/header/Header.comp';
 
 function App() {
   return (
     <div>
+      <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/ikan' component={IkanPage} />
