@@ -22,12 +22,16 @@ class Header extends React.Component {
 
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><Link to='/'>Home</Link></li>
+            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/register'>Register</Link></li>
             <li><Link to='/'>About</Link></li>
           </ul>
         </nav>
 
         <ul id="slide-out" className="sidenav">
           <li><Link to='/'>Home</Link></li>
+          <li><Link to='/login'>Login</Link></li>
+          <li><Link to='/register'>Register</Link></li>
           <li><Link to='/'>About</Link></li>
         </ul>
       </div>
