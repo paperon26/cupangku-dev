@@ -2,6 +2,7 @@ import React from 'react'
 import M from 'materialize-css'
 
 import './Login.style.css'
+import Forminput from '../form-input/FormInput.comp'
 
 class LoginComp extends React.Component {
   constructor(props) {
@@ -35,7 +36,33 @@ class LoginComp extends React.Component {
         <span className="col s12 center">Masuk dengan email dan password</span>
 
         <form className="col s12 card-panel" onSubmit={this.handleSubmit}>
-          <div className="row">
+
+          <Forminput
+            id="email"
+            type="email"
+            name="email"
+            value={this.state.email}
+            handleChange={this.handleChange}
+            className="validate"
+            label="Email"
+            labelFor="email"
+            required
+          />
+
+          <Forminput
+            id="password"
+            type="password"
+            name="password"
+            value={this.state.password}
+            handleChange={this.handleChange}
+            className="validate"
+            label="Password"
+            labelFor="password"
+            required 
+            />
+          
+
+          {/* <div className="row">
             <div className="input-field col s12">
               <input
                 id="email"
@@ -48,8 +75,9 @@ class LoginComp extends React.Component {
               <label for="email">Email</label>
               <span className="helper-text" data-error="format email salah" data-success="format email benar" ></span>
             </div>
-          </div >
-          <div className="row">
+          </div > */}
+
+          {/* <div className="row">
             <div className="input-field col s12">
               <input
                 id="password"
@@ -61,7 +89,7 @@ class LoginComp extends React.Component {
                 required />
               <label for="password">Password</label>
             </div>
-          </div>
+          </div> */}
 
           <input type="submit" value="Submit" id="validate" className="btn waves-effect waves-light right" />
         </form>
