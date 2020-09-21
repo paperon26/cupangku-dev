@@ -4,7 +4,7 @@ import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 
 import HomePage from './pages/home.page/Home.page';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import IkanPage from './pages/ikan.page/Ikan.page';
 import LoginPage from './pages/login.page/Login.page';
 import RegisterPage from './pages/register.page/Register.page';
@@ -12,10 +12,12 @@ import RegisterPage from './pages/register.page/Register.page';
 function App() {
   return (
     <div>
-      <Route exact path='/' component={HomePage} />
-      <Route path='/ikan' component={IkanPage} />
-      <Route path='/login' component={LoginPage} />
-      <Route path='/register' component={RegisterPage} />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/ikan' component={IkanPage} />
+        <Route path='/login' component={LoginPage} />
+        <Route path='/register' component={RegisterPage} />
+      </Switch>
     </div>
   );
 }
