@@ -1,5 +1,5 @@
 import React from 'react'
-import CollectionFish from '../../collection-fish/CollectionFish.comp'
+import CollectionFish from '../../components/collection-fish/CollectionFish.comp'
 import IKAN_DATA from './ikan.data'
 
 class IkanPage extends React.Component {
