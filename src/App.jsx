@@ -9,7 +9,7 @@ import IkanPage from './pages/ikan.page/Ikan.page';
 import LoginPage from './pages/login.page/Login.page';
 import RegisterPage from './pages/register.page/Register.page';
 import Header from './components/header/Header.comp';
-import { auth } from './firebase/firebase.utils'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 class App extends React.Component {
   constructor() {
@@ -23,8 +23,9 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+      // this.setState({ currentUser: user })
+      createUserProfileDocument(user)
     })
   }
 
