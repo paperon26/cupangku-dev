@@ -32,7 +32,7 @@ class Header extends React.Component {
             }
             {
               currentUser ?
-                <li><Link onClick={() => auth.signOut()}>Logout</Link> </li>
+                <li><Link to='' onClick={() => auth.signOut()}>Logout</Link> </li>
                 :
                 <li> <Link to='/login'>Login</Link></li>
             }
@@ -49,7 +49,7 @@ class Header extends React.Component {
           }
           {
             currentUser ?
-              <li><Link onClick={() => auth.signOut()}>Logout</Link> </li>
+              <li><Link to='' onClick={() => auth.signOut()}>Logout</Link> </li>
               :
               <li> <Link to='/login'>Login</Link></li>
           }

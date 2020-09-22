@@ -1,6 +1,6 @@
 import React from 'react'
 import M from 'materialize-css'
-import { signInWithGoogle } from '../../firebase/firebase.utils'
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 
 import './Login.style.css'
 import Forminput from '../form-input/FormInput.comp'
@@ -19,10 +19,22 @@ class LoginComp extends React.Component {
     M.AutoInit()
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async e => {
     e.preventDefault()
 
-    this.setState({ email: '', password: '' })
+    const {email, password} = this.state
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+
+      this.state = {
+        email: "",
+        password: ""
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   handleChange = (e) => {
@@ -61,13 +73,13 @@ class LoginComp extends React.Component {
           />
           <div className="row">
             <div className="col s12 center">
-              <CustomButton type="submit" id="validate">Submit</CustomButton>
+              <CustomButton type="submit" id="validate" >Submit</CustomButton>
             </div>
             <div className="col s12 center">
               <span className="grey-text center">- atau -</span>
             </div>
             <div className="col s12 center">
-              <CustomButton className="btn blue waves-effect waves-light" onClick={signInWithGoogle} id="validate">Masuk dengan Google</CustomButton>
+              <CustomButton className="btn blue waves-effect waves-light" onClick={signInWithGoogle}>Masuk dengan Google</CustomButton>
             </div>
           </div>
         </form>
