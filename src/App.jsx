@@ -9,19 +9,42 @@ import IkanPage from './pages/ikan.page/Ikan.page';
 import LoginPage from './pages/login.page/Login.page';
 import RegisterPage from './pages/register.page/Register.page';
 import Header from './components/header/Header.comp';
+import { auth } from './firebase/firebase.utils'
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/ikan' component={IkanPage} />
-        <Route path='/login' component={LoginPage} />
-        <Route path='/register' component={RegisterPage} />
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+
+    this.state = {
+      currentUser: null
+    }
+  }
+
+  unsubscribeFromAuth = null
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user })
+    })
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth()
+  }
+
+  render() {
+    return (
+      <div>
+        <Header currentUser={this.state.currentUser} />
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/ikan' component={IkanPage} />
+          <Route path='/login' component={LoginPage} />
+          <Route path='/register' component={RegisterPage} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

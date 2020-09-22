@@ -67,7 +67,7 @@ class LoginComp extends React.Component {
               <span className="grey-text center">- atau -</span>
             </div>
             <div className="col s12 center">
-              <CustomButton className="btn blue" onClick={signInWithGoogle} id="validate">Masuk dengan Google</CustomButton>
+              <CustomButton className="btn blue waves-effect waves-light" onClick={signInWithGoogle} id="validate">Masuk dengan Google</CustomButton>
             </div>
           </div>
         </form>
